@@ -29,7 +29,7 @@ function drawFood() {
   context.fillRect(food.x, food.y, box, box);
 }
 
-document.addEventListener("keydown.update");
+document.addEventListener("keydown", update);
 
 function update(event) {
   if (event.keyCode == 37 && direction != "right") direction = "left";
@@ -39,13 +39,13 @@ function update(event) {
 }
 
 function iniciarJogo() {
-  if (snake[0].x > 15 * box && direction == "rigth") snake[0].x = 0;
-  if (snake[0].x > 0 && direction == "left") snake[0].x = 16 * box;
+  if (snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
+  if (snake[0].x < 0 && direction == 'left') snake[0].x = 16 * box;
   if (snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
-  if (snake[0].y > 0 && direction == "up") snake[0].y = 16 * box;
+  if (snake[0].y < 0 && direction == 'up') snake[0].y = 16 * box;
 
-  for(i=1, i<snake.length; i++){
-    if(snake[0].x == snake[i]).x && snake[0].y == snake[i].y){
+  for (i = 1, i < snake.length; i++) {
+    if (snake[0].x == snake[i]).x && snake[0].y == snake[i].y) {
       clearInterval(jogo);
       alert("Game Over :( ")
     }
@@ -65,8 +65,8 @@ function iniciarJogo() {
   if (snakeX != food.x || snakeY != food.y) {
     snake.pop();
   } else {
-    (food.x = Math.floor(Math.random() * 15 + 1) * box),
-      (food.y = Math.floor(Math.random() * 15 + 1) * box);
+    food.x = Math.floor(Math.random() * 15 + 1) * box;
+    food.y = Math.floor(Math.random() * 15 + 1) * box;
   }
 
   let newHead = {
