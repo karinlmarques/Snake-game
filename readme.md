@@ -1,4 +1,4 @@
-Projeto que recria cl·ssico jogo da cobrinha :snake:
+Projeto que recria o cl√°ssico jogo da cobrinha :snake:
 
 utilizando HTML, CSS e JavaScript 
 
